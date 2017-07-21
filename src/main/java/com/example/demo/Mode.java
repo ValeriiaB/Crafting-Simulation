@@ -6,10 +6,14 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.*;
+import java.io.Serializable;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Mode {
+@Entity
+public class Mode extends BaseIdClass implements Serializable {
 
     private String name;
     private int itemLevel;
@@ -21,11 +25,6 @@ public class Mode {
     private int minValueChild;
     private int maxValueChild;
     private String effectChild;
-
-    public String toString(){
-        return this.name + " " + this.itemLevel + " " + this.effect;
-    }
-
 
 }
 
