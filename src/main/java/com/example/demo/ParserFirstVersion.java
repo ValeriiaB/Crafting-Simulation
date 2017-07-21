@@ -17,6 +17,7 @@ import java.util.regex.Pattern;
 public class ParserFirstVersion implements Parser {
 
     Map<ModeTypeEnum, ArrayList<Mode>> listOfModesGroupByType = new HashMap<>();
+    static final String SITE = "http://pathofexile.gamepedia.com/";
 
     public void parsingData(String url) throws IOException {
         Document document = Jsoup.connect(SITE + url).userAgent("Mozilla").get();
@@ -51,7 +52,7 @@ public class ParserFirstVersion implements Parser {
                 listOfModesGroupByType.put(key, listOfModes);
             }
         }
-    }
+ }
 
     private void modeBuilder(String rowContent, Mode mode){
         Pattern pattern = Pattern.compile("(.+?)Req\\W*Lv\\.\\W*(\\d+)\\s\\w*\\W*(\\d+)-(\\d+)\\)(.*)");
@@ -64,10 +65,10 @@ public class ParserFirstVersion implements Parser {
             mode.setEffect(matcher.group(5));
             if (mode.getEffect().contains("increase"))
                 mode.setActionTypeEnum(ActionTypeEnum.INCREASE);
-            else if (mode.getEffect().contains("Reflect"))
-                mode.setActionTypeEnum(ActionTypeEnum.DEFAULT);
-            else
+            else if (mode.getEffect().contains("+"))
                 mode.setActionTypeEnum(ActionTypeEnum.ADD);
+            else
+                mode.setActionTypeEnum(ActionTypeEnum.DEFAULT);
         }
     }
 }
