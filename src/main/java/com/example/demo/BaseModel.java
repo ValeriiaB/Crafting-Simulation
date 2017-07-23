@@ -12,6 +12,6 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Entity
 
-public class BaseIdClass implements Serializable {
+public class BaseModel implements Serializable {
     private long id;
 }

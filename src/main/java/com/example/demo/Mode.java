@@ -13,7 +13,8 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Mode extends BaseIdClass implements Serializable {
+@Table(name = "Mode")
+public class Mode extends BaseModel implements Serializable {
 
     private String name;
     private int itemLevel;

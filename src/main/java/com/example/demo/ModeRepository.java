@@ -6,6 +6,6 @@ import javax.transaction.Transactional;
 
 
 @Transactional
-public interface ModeRepository extends CrudRepository<Mode, Long> {
+public interface ModeRepository extends CrudRepository<Mode, Long>{
 
 }

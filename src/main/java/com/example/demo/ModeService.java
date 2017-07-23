@@ -11,23 +11,24 @@ public class ModeService {
     ModeRepository modeRepository;
 
 
-    public void putListOfModesToDB(ArrayList<Mode> listOfModes){
+    public void insert(ArrayList<Mode> listOfModes){
             modeRepository.save(listOfModes);
     }
 
-    public void putOneModeToDB(Mode mode){
+    public void insert(Mode mode){
         modeRepository.save(mode);
+        //modeRepository.se
     }
 
-    public Mode getModeById(Long id){
+    public Mode select(Long id){
         return modeRepository.findOne(id);
     }
 
-    public void deleteModeById(Long id){
+    public void delete(Long id){
         modeRepository.delete(id);
     }
 
-    public void updateMode(Mode mode){
+    public void update(Mode mode){
         modeRepository.save(mode);
     }
 }

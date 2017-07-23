@@ -1,9 +1,9 @@
 package com.example.demo.EnumClasses;
 
 public enum ModeTypeEnum {
-    PREFIX(1L) ,
-    SUFFIX(2L),
-    CORRUPTED(3L);
+    PREFIX(0) ,
+    SUFFIX(1),
+    CORRUPTED(2);
     private long id;
 
     ModeTypeEnum(long id) {
@@ -21,8 +21,10 @@ public enum ModeTypeEnum {
                 return "Prefix";
             case SUFFIX:
                 return "Suffix";
-            default:
+            case CORRUPTED:
                 return "Corrupted";
+            default:
+                return "";
         }
     }
 }

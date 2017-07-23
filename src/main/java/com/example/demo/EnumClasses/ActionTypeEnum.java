@@ -3,9 +3,9 @@ package com.example.demo.EnumClasses;
 
 
 public enum ActionTypeEnum {
-    ADD(1L),
-    INCREASE(2L),
-    DEFAULT(3L);
+    ADD(0),
+    INCREASE(1),
+    DEFAULT(2);
 
     private long id;
 
