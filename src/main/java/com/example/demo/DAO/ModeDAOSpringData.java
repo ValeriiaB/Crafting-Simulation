@@ -1,11 +1,13 @@
-package com.example.demo;
+package com.example.demo.DAO;
 
 
+import com.example.demo.DataBase.Mode;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class ModeService {
+public class ModeDAOSpringData implements BaseDAO<Mode>{
 
     @Autowired
     ModeRepository modeRepository;
@@ -17,11 +19,18 @@ public class ModeService {
 
     public void insert(Mode mode){
         modeRepository.save(mode);
-        //modeRepository.se
+
     }
 
     public Mode select(Long id){
         return modeRepository.findOne(id);
+    }
+
+    public List<Mode> selectAll() {
+        List<Mode> listOfModes= new ArrayList<>();
+        modeRepository.findAll()
+                .forEach(listOfModes::add);
+        return listOfModes;
     }
 
     public void delete(Long id){

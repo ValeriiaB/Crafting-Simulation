@@ -1,6 +1,7 @@
 package com.example.demo;
 
 
+import com.example.demo.DataBase.Mode;
 import com.example.demo.EnumClasses.ActionTypeEnum;
 import com.example.demo.EnumClasses.ModeTypeEnum;
 import org.jsoup.Jsoup;
