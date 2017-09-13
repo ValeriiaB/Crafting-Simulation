@@ -7,9 +7,9 @@ import java.util.List;
 
 
 @Transactional
-public interface BaseDAO <T>  {
+public interface IDAO<T>  {
     void insert(T t);
-    void insert(ArrayList<T> t);
+    //void insert(ArrayList<T> t);
     T select(Long id);
     void delete(Long id);
     void update(T t);

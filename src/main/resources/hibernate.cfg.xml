@@ -8,12 +8,10 @@
   <session-factory>
     <property name="connection.url">jdbc:mysql://localhost:3306/crafting_simulation</property>
     <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
-      <mapping class="com.example.demo.DataBase.Mode"/>
+      <!--<mapping class="com.example.demo.DataBase.Mode"/>-->
 
-      <!--<mapping resource="DataBase/BaseModel.hbm.xml"/>-->
-
-    <!--<property name="hibernate.connection.username">root</property>-->
-    <!--<property name="hibernate.connection.password">root</property>-->
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.connection.password">root</property>
 
     <!-- DB schema will be updated if needed -->
     <!-- <property name="hbm2ddl.auto">update</property> -->
