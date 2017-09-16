@@ -18,4 +18,8 @@ public class BaseModel implements Serializable {
     @GeneratedValue
     @NotNull
     private long id;
+    @NotNull
+    private String name;
+    @NotNull
+    private int itemLevel;
 }

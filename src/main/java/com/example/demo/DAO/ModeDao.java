@@ -29,9 +29,6 @@ public class ModeDao implements IDAO<Mode> {
     }
 
     public void update(Mode mode) {
-        String hql = "FROM Mode as oldMode WHERE oldMode.name =:name";
-        Mode oldMode = (Mode) entityManager.createQuery(hql).setParameter("name", mode.getName()).getSingleResult();
-        mode.setId(oldMode.getId());
         entityManager.merge(mode);
     }
     public void delete(Long id) {

@@ -19,10 +19,6 @@ import java.io.Serializable;
 public class Mode extends BaseModel implements Serializable {
 
     @NotNull
-    private String name;
-    @NotNull
-    private int itemLevel;
-    @NotNull
     private String effect;
     @NotNull
     private ModeTypeEnum modeTypeEnum;
