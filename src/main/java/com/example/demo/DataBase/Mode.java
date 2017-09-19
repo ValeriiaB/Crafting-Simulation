@@ -16,6 +16,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @Entity
 @Table(name = "Mode")
+
 public class Mode extends BaseModel implements Serializable {
 
     @NotNull

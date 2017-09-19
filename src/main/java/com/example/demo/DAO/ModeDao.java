@@ -25,7 +25,7 @@ public class ModeDao implements IDAO<Mode> {
     }
 
     public void insert(Mode mode) {
-        entityManager.persist(mode);
+        entityManager.merge(mode);
     }
 
     public void update(Mode mode) {
