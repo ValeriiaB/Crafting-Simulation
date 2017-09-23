@@ -12,9 +12,9 @@
 
     <property name="hibernate.connection.username">root</property>
     <property name="hibernate.connection.password">root</property>
-    <mapping class="com.example.demo.DataBase.Armor" />
-    <mapping class="com.example.demo.DataBase.Mode" />
-    <mapping class="com.example.demo.DataBase.BaseModel" />
+    <!--<mapping class="com.example.demo.DataBase.Armor" />-->
+    <!--<mapping class="com.example.demo.DataBase.Mode" />-->
+    <!--<mapping class="com.example.demo.DataBase.BaseModel" />-->
 
 
     <!-- DB schema will be updated if needed -->

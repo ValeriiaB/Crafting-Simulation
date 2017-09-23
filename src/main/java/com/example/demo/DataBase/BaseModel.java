@@ -22,4 +22,24 @@ public class BaseModel implements Serializable {
     private String name;
     @NotNull
     private int itemLevel;
+
+    @Override
+    public boolean equals(Object o){
+        if (o == null) return false;
+        if (o == this) return true;
+        if (!(o instanceof BaseModel))return false;
+        BaseModel item = (BaseModel) o;
+        return  item.getId()== this.getId() &&
+                item.getName().equals(this.getName()) &&
+                item.getItemLevel() == this.getItemLevel();
+    }
+
+    @Override
+    public int hashCode() {
+        int result = 17;
+        result = 31 * result + this.getName().hashCode();
+        result = 31 * result + Long.hashCode(this.getId());
+        result = 31 * result + this.getItemLevel();
+        return result;
+    }
 }

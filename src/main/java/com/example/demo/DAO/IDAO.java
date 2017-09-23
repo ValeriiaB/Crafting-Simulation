@@ -8,7 +8,7 @@ import java.util.List;
 
 @Transactional
 public interface IDAO<T>  {
-    void insert(T t);
+    T insert(T t);
     //void insert(ArrayList<T> t);
     T select(Long id);
     void delete(Long id);

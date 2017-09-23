@@ -33,5 +33,39 @@ public class Mode extends BaseModel implements Serializable {
     private int maxValueChild;
     private String effectChild;
 
+
+    @Override
+    public boolean equals(Object o){
+        if (o == null) return false;
+        if (o == this) return true;
+        if (!(o instanceof Mode))return false;
+        Mode mode = (Mode) o;
+        return  super.equals(mode) &&
+                mode.getEffect().equals(this.getEffect()) &&
+                mode.getActionTypeEnum().equals(this.getActionTypeEnum()) &&
+                mode.getEffectChild().equals(this.getEffectChild()) &&
+                mode.getModeTypeEnum().equals(this.getModeTypeEnum()) &&
+                mode.getMaxValue() == this.getMaxValue() &&
+                mode.getMinValue() ==this.getMinValue() &&
+                mode.getMaxValueChild() == this.getMaxValueChild() &&
+                mode.getMinValueChild() == this.getMinValueChild();
+    }
+
+    @Override
+    public int hashCode() {
+        int result = super.hashCode();
+        result = 31 * result + this.getEffect().hashCode();
+        result = 31 * result + this.getActionTypeEnum().hashCode();
+        result = 31 * result + this.getEffectChild().hashCode();
+        result = 31 * result + this.getModeTypeEnum().hashCode();
+        result = 31 * result + this.getMaxValueChild();
+        result = 31 * result + this.getMinValueChild();
+        result = 31 * result + this.getMaxValue();
+        result = 31 * result + this.getMinValue();
+        return result;
+    }
+
+
+
 }
 

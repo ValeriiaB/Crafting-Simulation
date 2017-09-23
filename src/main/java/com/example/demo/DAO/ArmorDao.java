@@ -19,8 +19,8 @@ public class ArmorDao implements IDAO<Armor>{
         return entityManager.find(Armor.class, id);
     }
     @Override
-    public void insert(Armor armor) {
-        entityManager.persist(armor);
+    public Armor insert(Armor armor) {
+        return entityManager.merge(armor);
     }
 
     @Override
