@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.util.Random;
 
 @Data
 @AllArgsConstructor
@@ -27,10 +28,14 @@ public class Mode extends BaseModel implements Serializable {
     private int minValue;
     @NotNull
     private int maxValue;
+    @Transient
+    private int currentValue;
     @NotNull
     private ActionTypeEnum actionTypeEnum;
     private int minValueChild;
     private int maxValueChild;
+    @Transient
+    private int currentValueChild;
     private String effectChild;
 
 
@@ -40,29 +45,18 @@ public class Mode extends BaseModel implements Serializable {
         if (o == this) return true;
         if (!(o instanceof Mode))return false;
         Mode mode = (Mode) o;
-        return  super.equals(mode) &&
-                mode.getEffect().equals(this.getEffect()) &&
-                mode.getActionTypeEnum().equals(this.getActionTypeEnum()) &&
-                mode.getEffectChild().equals(this.getEffectChild()) &&
-                mode.getModeTypeEnum().equals(this.getModeTypeEnum()) &&
-                mode.getMaxValue() == this.getMaxValue() &&
-                mode.getMinValue() ==this.getMinValue() &&
-                mode.getMaxValueChild() == this.getMaxValueChild() &&
-                mode.getMinValueChild() == this.getMinValueChild();
+        return  super.equals(mode);
     }
 
     @Override
     public int hashCode() {
-        int result = super.hashCode();
-        result = 31 * result + this.getEffect().hashCode();
-        result = 31 * result + this.getActionTypeEnum().hashCode();
-        result = 31 * result + this.getEffectChild().hashCode();
-        result = 31 * result + this.getModeTypeEnum().hashCode();
-        result = 31 * result + this.getMaxValueChild();
-        result = 31 * result + this.getMinValueChild();
-        result = 31 * result + this.getMaxValue();
-        result = 31 * result + this.getMinValue();
-        return result;
+        return super.hashCode();
+    }
+    public void setRandomCurrentValues(){
+        Random random = new Random();
+        this.setCurrentValue(random.nextInt(this.getMaxValue() - this.getMinValue() + 1) + this.getMinValue());
+        if(this.getEffectChild() != null)
+            this.setCurrentValueChild(random.nextInt(this.getMaxValueChild() - this.getMinValueChild() + 1) + this.getMinValueChild());
     }
 
 

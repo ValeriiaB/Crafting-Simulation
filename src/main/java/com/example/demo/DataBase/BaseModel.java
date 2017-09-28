@@ -29,17 +29,13 @@ public class BaseModel implements Serializable {
         if (o == this) return true;
         if (!(o instanceof BaseModel))return false;
         BaseModel item = (BaseModel) o;
-        return  item.getId()== this.getId() &&
-                item.getName().equals(this.getName()) &&
-                item.getItemLevel() == this.getItemLevel();
+        return  item.getId()== this.getId();
     }
 
     @Override
     public int hashCode() {
         int result = 17;
-        result = 31 * result + this.getName().hashCode();
         result = 31 * result + Long.hashCode(this.getId());
-        result = 31 * result + this.getItemLevel();
         return result;
     }
 }

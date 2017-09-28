@@ -39,7 +39,7 @@ public class ModeDao implements IModeDao {
     }
 
     @SuppressWarnings("unchecked")
-    public List<Mode> selectModeByModeTypeAndItemLevelLEToGivenValue(int itemLevel, ModeTypeEnum modeType) {
+    public List<Mode> selectWithParams(int itemLevel, ModeTypeEnum modeType) {
         String hql = "FROM Mode as mode where mode.itemLevel <=:itemLvl and  mode.modeTypeEnum =:modeType ORDER BY mode.id";
         return (List<Mode>) entityManager.createQuery(hql)
                 .setParameter("itemLvl",itemLevel)
@@ -47,7 +47,7 @@ public class ModeDao implements IModeDao {
                 .getResultList();
     }
     @SuppressWarnings("unchecked")
-    public List<Mode> selectModeByModeTypeAndActionTypeAndItemLevelLEToGivenValue(int itemLevel, ModeTypeEnum modeType, ActionTypeEnum actionType) {
+    public List<Mode> selectWithParams(int itemLevel, ModeTypeEnum modeType, ActionTypeEnum actionType) {
         String hql = "FROM Mode as mode where mode.itemLevel <=:itemLvl and  mode.modeTypeEnum =:modeType and mode.actionTypeEnum =:actionType ORDER BY mode.id";
         return (List<Mode>) entityManager.createQuery(hql)
                 .setParameter("itemLvl",itemLevel)

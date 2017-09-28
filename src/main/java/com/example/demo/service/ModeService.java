@@ -8,10 +8,12 @@ import com.example.demo.DataBase.Mode;
 import com.example.demo.EnumClasses.ModeTypeEnum;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
+@Transactional
 public class ModeService implements IService <Mode> {
     @Autowired
     private IModeDao dao;
@@ -36,7 +38,7 @@ public class ModeService implements IService <Mode> {
     public void delete(Long id) {
         dao.delete(id);
     }
-    public List<Mode> selectByModeTypeAndItemLevelLEToGivenValue(int itemLevel, ModeTypeEnum type){
-        return dao.selectModeByModeTypeAndItemLevelLEToGivenValue(itemLevel, type);
+    public List<Mode> selectWithParams(int itemLevel, ModeTypeEnum type){
+        return dao.selectWithParams(itemLevel, type);
     }
 }
